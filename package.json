@@ -1,0 +1,32 @@
+{
+  "name": "react-agency-boilerplate-plops",
+  "version": "1.0.2",
+  "description": "Reusable Plop generators for React + Strapi projects with Vite, SCSS, and TypeScript.",
+  "main": "plopfile.js",
+  "bin": {
+    "react-agency-boilerplate-plops": "bin/generate.js",
+    "gen-hook": "bin/generate.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "plop"
+  },
+  "keywords": [
+    "plop",
+    "react",
+    "vite",
+    "strapi",
+    "typescript",
+    "generator",
+    "boilerplate"
+  ],
+  "author": "Daniel Butron",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "plop": "^4.0.1"
+  },
+  "devDependencies": {
+    "quicktype-core": "^23.1.2"
+  }
+}
