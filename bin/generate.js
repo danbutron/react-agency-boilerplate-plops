@@ -7,7 +7,9 @@ import { run } from 'plop';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ✅ PASA configPath como parte del segundo argumento (env)
-run(undefined, {
-    configPath: path.resolve(__dirname, '../plopfile.js'),
+const plopfilePath = path.resolve(__dirname, '../plopfile.js');
+
+run({
+    cwd: process.cwd(),
+    configPath: plopfilePath,
 });
