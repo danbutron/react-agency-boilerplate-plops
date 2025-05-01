@@ -24,3 +24,5 @@ build/
 # Archivos generados por Plop (si haces pruebas)
 src/hooks/use*Query.ts
 src/types/*.ts
+
+.env

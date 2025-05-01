@@ -1,7 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import axios from 'axios';
+import dotenv from 'dotenv';
 import { quicktype, InputData, jsonInputForTargetLanguage } from 'quicktype-core';
+
+// 🧪 Cargar el .env desde el proyecto
+dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 
 async function generateTypes(name, json) {
     const jsonInput = jsonInputForTargetLanguage('ts');
@@ -24,7 +28,11 @@ async function generateTypes(name, json) {
 export default function (plop) {
     plop.setActionType('fetch-json', async (answers) => {
         const endpoint = answers.endpoint;
-        const url = `http://127.0.0.1:1337/api/${endpoint}`;
+
+        // ✅ Usa STRAPI_API_URL desde el entorno
+        const baseURL = process.env.VITE_STRAPI_URL || '';
+        const url = `${baseURL}/${endpoint}`;
+
         const fileName = endpoint.replaceAll('/', '-');
         const pascalName = plop.getHelper('pascalCase')(fileName);
         const camelName = plop.getHelper('camelCase')(fileName);
