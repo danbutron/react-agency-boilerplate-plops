@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
-const { quicktype, InputData, jsonInputForTargetLanguage } = require('quicktype-core');
+import fs from 'fs';
+import path from 'path';
+import axios from 'axios';
+import { quicktype, InputData, jsonInputForTargetLanguage } from 'quicktype-core';
 
 async function generateTypes(name, json) {
     const jsonInput = jsonInputForTargetLanguage('ts');
@@ -21,7 +21,7 @@ async function generateTypes(name, json) {
     return result.lines.join('\n');
 }
 
-module.exports = function (plop) {
+export default function (plop) {
     plop.setActionType('fetch-json', async (answers) => {
         const endpoint = answers.endpoint;
         const url = `http://127.0.0.1:1337/api/${endpoint}`;
@@ -93,4 +93,4 @@ export const use${pascalName}Query = () => {
             },
         ],
     });
-};
+}
