@@ -1,7 +1,7 @@
 {
   "name": "react-agency-boilerplate-plops",
   "version": "1.0.5",
-  "type": "module",
+  "type": "commonjs",
   "description": "Reusable Plop generators for React + Strapi projects with Vite, SCSS, and TypeScript.",
   "main": "plopfile.js",
   "bin": {
