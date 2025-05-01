@@ -1,0 +1,26 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Entornos de desarrollo
+.idea/
+.vscode/
+
+# Archivos temporales
+*.log
+*.tmp
+*.swp
+
+# Build o dist (si llegas a compilar en el futuro)
+dist/
+build/
+
+# Archivos generados por Plop (si haces pruebas)
+src/hooks/use*Query.ts
+src/types/*.ts
