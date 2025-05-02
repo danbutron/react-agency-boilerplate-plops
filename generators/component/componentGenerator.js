@@ -1,11 +1,12 @@
 import path from 'path';
+const projectRoot = process.cwd();
 import fs from 'fs';
 import Handlebars from 'handlebars';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const templatePath = path.resolve(__dirname, 'component.hbs');
+const templatePath = path.resolve(projectRoot, 'plop-templates/component.hbs');
 
 const template = Handlebars.compile(fs.readFileSync(templatePath, 'utf8'));
 
@@ -33,12 +34,12 @@ export default function (plop) {
       {
         type: 'add',
         path: 'src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.tsx',
-        templateFile: templatePath,
+        templateFile: path.resolve(projectRoot, 'plop-templates/component.hbs'),
       },
       {
         type: 'add',
         path: 'src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.module.scss',
-        templateFile: path.resolve(__dirname, 'style.hbs'),
+        templateFile: path.resolve(projectRoot, 'plop-templates/style.hbs'),
       },
       {
         type: 'add',
