@@ -1,0 +1,23 @@
+import { useQuery } from "@tanstack/react-query";
+import { apiClient } from '@services/apiClient';
+
+{{{types}}}
+
+export interface {{pascalName}}Response {
+  data: {{{tsType}}};
+}
+
+const fetch{{pascalName}} = async (): Promise<{{{tsType}}}> => {
+  const response = await apiClient<{{pascalName}}Response>('{{endpoint}}');
+  return response.data;
+};
+
+export const use{{pascalName}}Query = () => {
+  return useQuery<{{{tsType}}}>({
+    queryKey: ['{{camelName}}'],
+    queryFn: fetch{{pascalName}},
+    staleTime: 1000 * 60 * 5,
+    retry: 2,
+    refetchOnWindowFocus: false,
+  });
+};
