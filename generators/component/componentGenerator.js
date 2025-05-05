@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const templatePath = path.resolve(projectRoot, 'generators/component/component.hbs');
+const templatePath = path.resolve(__dirname, 'component.hbs');
 
 const template = Handlebars.compile(fs.readFileSync(templatePath, 'utf8'));
 
@@ -34,12 +34,12 @@ export default function (plop) {
       {
         type: 'add',
         path: 'src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.tsx',
-        templateFile: path.resolve(projectRoot, 'generators/component/component.hbs'),
+        templateFile: path.resolve(__dirname, 'component.hbs'),
       },
       {
         type: 'add',
         path: 'src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.module.scss',
-        templateFile: path.resolve(projectRoot, 'generators/component/style.hbs'),
+        templateFile: path.resolve(__dirname, 'style.hbs'),
       },
       {
         type: 'add',
