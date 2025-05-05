@@ -33,23 +33,23 @@ export default function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.tsx',
+        path: path.resolve(projectRoot, `src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.tsx`),
         templateFile: path.resolve(__dirname, 'component.hbs'),
       },
       {
         type: 'add',
-        path: 'src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.module.scss',
+        path: path.resolve(projectRoot, `src/components/{{type}}/{{pascalCase name}}/{{pascalCase name}}.module.scss`),
         templateFile: path.resolve(__dirname, 'style.hbs'),
       },
       {
         type: 'add',
-        path: 'src/components/{{type}}/index.ts',
+        path: path.resolve(projectRoot, `src/components/{{type}}/index.ts`),
         template: '// EXPORTS\n',
         skipIfExists: true,
       },
       {
         type: 'append',
-        path: 'src/components/{{type}}/index.ts',
+        path: path.resolve(projectRoot, `src/components/{{type}}/index.ts`),
         pattern: /(\/\/ EXPORTS)/,
         template: `export * from './{{pascalCase name}}/{{pascalCase name}}';`,
       },
